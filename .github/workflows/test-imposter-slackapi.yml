@@ -1,0 +1,28 @@
+name: Test checkout
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@int
+        with:
+          disable-sudo: true
+          egress-policy: audit
+
+      - name: Checkout
+        id: checkout-repo1
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: slack api
+        uses: slackapi/slack-github-action@v1.27.0
+        with:
+          payload: |
+            {
+              "text": "Test message from GitHub Actions - Dry Run"
+            }
