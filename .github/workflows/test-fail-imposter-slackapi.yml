@@ -3,6 +3,9 @@ name: Test checkout
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   Test:
     runs-on: ubuntu-latest
