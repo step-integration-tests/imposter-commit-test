@@ -1,4 +1,4 @@
-name: Test checkout
+name: Test Pass Imposter
 
 on:
   workflow_dispatch:
