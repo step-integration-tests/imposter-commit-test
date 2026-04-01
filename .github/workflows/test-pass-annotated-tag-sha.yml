@@ -12,14 +12,15 @@ jobs:
      - name: Checkout
        uses: actions/checkout@v4
 
-     - name: Use action pinned to annotated tag object SHA
-       # softprops/action-gh-release v2.0.5
-       # SHA 4fabdc8bec0ad32a2eb09fb8fd1d04fd30a75562 is the annotated tag OBJECT,
-       # NOT the commit SHA (69320dbe05506a9a39fc8ae11030b214ec2d1f87).
-       # Backend should resolve this tag object to the underlying commit
-       # and NOT flag it as an imposter commit.
-       uses: softprops/action-gh-release@4fabdc8bec0ad32a2eb09fb8fd1d04fd30a75562
-       continue-on-error: true
-       with:
-         draft: true
-         tag_name: test-annotated-tag-v0.0.0
+     - name: Use action with annotated tag
+       # softprops/action-gh-release v2.0.5 uses an annotated tag.                                       
+       # GitHub resolves this tag and may report the tag object SHA                                      
+       # (4fabdc8bec0ad32a2eb09fb8fd1d04fd30a75562) instead of the                                       
+       # commit SHA (69320dbe05506a9a39fc8ae11030b214ec2d1f87).                                          
+       # Backend should detect the tag object and resolve it to the                                      
+       # underlying commit, NOT flagging it as an imposter.                                              
+       uses: softprops/action-gh-release@v2.0.5                                                          
+       continue-on-error: true                                                                           
+       with:                                                                                             
+         draft: true                                                                                     
+         tag_name: test-annotated-tag-v0.0.0 
