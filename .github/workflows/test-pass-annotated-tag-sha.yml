@@ -18,5 +18,5 @@ jobs:
        uses: actions/checkout@v4
 
      - name: Use action with annotated tag                                         
-       uses: anthropics/claude-code-action@e1f83b5b955a29fc3bab97ac514eabb778444dde
+       uses: anthropics/claude-code-action@f32f774900cb3e9603007d6b999e962856b76873
        continue-on-error: true 
