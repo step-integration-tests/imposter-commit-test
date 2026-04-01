@@ -19,18 +19,4 @@ jobs:
 
      - name: Use action with annotated tag                                         
        uses: anthropics/claude-code-action@e1f83b5b955a29fc3bab97ac514eabb778444dde
-       continue-on-error: true    
- simple-tag-sha-test:
-   runs-on: ubuntu-latest
-   steps:
-     - name: Harden Runner
-       uses: step-security/harden-runner@int
-       with:
-         disable-sudo: true
-         egress-policy: audit
-     - name: Checkout
-       uses: actions/checkout@v4
-
-     - name: Use action with annotated tag                                         
-       uses: anthropics/claude-code-action@v1.0.79
-       continue-on-error: true
+       continue-on-error: true 
