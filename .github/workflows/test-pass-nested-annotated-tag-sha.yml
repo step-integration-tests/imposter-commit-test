@@ -9,12 +9,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout sources
-      uses: actions/checkout@v6
-    - name: Setup Java
-      uses: actions/setup-java@v5
-      with:
-        distribution: 'temurin'
-        java-version: 17
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@48b5f213c81028ace310571dc5ec0fbbca0b2947
+     - name: Harden Runner
+       uses: step-security/harden-runner@int
+       with:
+         disable-sudo: true
+         egress-policy: audit
+     - name: Checkout sources
+       uses: actions/checkout@v6
+     - name: Setup Java
+       uses: actions/setup-java@v5
+       with:
+         distribution: 'temurin'
+         java-version: 17
+     - name: Setup Gradle
+       uses: gradle/actions/setup-gradle@48b5f213c81028ace310571dc5ec0fbbca0b2947
