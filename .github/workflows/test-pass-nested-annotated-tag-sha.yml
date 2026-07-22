@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: Harden Runner
-       uses: step-security/harden-runner@int
+       uses: step-security/harden-runner@f1db3319d7db49c70352da1f5d1a122f754e8c01 # int
        with:
          disable-sudo: true
          egress-policy: audit
@@ -22,4 +22,4 @@ jobs:
          distribution: 'temurin'
          java-version: 17
      - name: Setup Gradle
-       uses: gradle/actions/setup-gradle@v4
+       uses: gradle/actions/setup-gradle@ed408507eac070d1f99cc633dbcf757c94c7933a # v4.4.3
