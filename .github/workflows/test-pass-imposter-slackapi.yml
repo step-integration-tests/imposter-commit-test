@@ -3,12 +3,15 @@ name: Test Pass Imposter
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   Test:
     runs-on: ubuntu-latest
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@int
+        uses: step-security/harden-runner@f1db3319d7db49c70352da1f5d1a122f754e8c01 # int
         with:
           disable-sudo: true
           egress-policy: audit
@@ -20,7 +23,7 @@ jobs:
           fetch-depth: 0
 
       - name: slack api
-        uses: slackapi/slack-github-action@v2.1.0
+        uses: slackapi/slack-github-action@b0fa283ad8fea605de13dc3f449259339835fc52 # v2.1.0
         with:
           payload: |
             {
